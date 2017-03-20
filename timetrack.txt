@@ -1,0 +1,10 @@
+TIME TRACK
+_________________________________________
+
+Part 1 (.NET steps 1-3): 2 hours and 3 minutes
+
+Part 2 (SQL): 47 minutes
+
+Part 3 (Front End Skills Assessment): 44 minutes
+
+_________________________________________
