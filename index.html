@@ -13,5 +13,22 @@
 			<div id="fourth"><label class="card">Card 4</label></div>
 			<div id="fifth"><label class="card">Card 5</label></div>
 		</div>
+
+<p>
+
+<div class="container">	 
+	<div class="outer">
+		    <a href="#" id="loadedButton" data-button-value="gotcha">Button</a>
+	</div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.2.0.slim.min.js"
+  integrity="sha256-qLAv0kBAihcHZLI3fv3WITKeRsUX27hd6upBBa0MSow="
+  crossorigin="anonymous"></script>
+  <script>
+$("#loadedButton").click(function(){
+    console.log($("#loadedButton").attr("data-button-value"));
+});
+</script>
 </body>
 </html>
