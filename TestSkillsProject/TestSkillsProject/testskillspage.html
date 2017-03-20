@@ -8,9 +8,16 @@
 </head>
 <body>
     <div class="container" ng-controller="ItemController as vm">
-        <h1 class="text-center">LIST OF ITEMS</h1>
+        <h1 class="text-center">ITEMS</h1>
+        
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-info" ng-click="vm.showAll();">List All Items</button>
+            <button type="button" class="btn btn-info" ng-click="vm.showHighest();">Highest Price Items</button>
+           
+        </div>
+        
         <div ng-show="vm.data.length == 0"></div>              
-        <table class="table table-striped">
+        <table class="table table-striped" ng-class="hide" ng-hide="!vm.showAllItems">
             <tr>
             <th>Item ID</th>
             <th>Item Name</th>
@@ -22,18 +29,39 @@
             <td>${{item.Price}}</td>
             </tr>
         </table>
+        <p>
+        </p>
+        <table class="table table-striped" ng-class="hide" ng-hide="!vm.showHighestPrice">
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+            </tr>
+            <tr ng-repeat="highestItem in vm.highestPriceData | orderBy : 'ID'">
+                <td>{{highestItem.ID}}</td>
+                <td>{{highestItem.ItemName}}</td>
+                <td>${{highestItem.Price}}</td>
+            </tr>
+        </table>
 
         <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search by item name to retrieve lowest price...">
+                    <input type="text" class="form-control" placeholder="Search by item name to retrieve lowest price..." ng-model="vm.lowestItem">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+                        <button class="btn btn-default" type="button" ng-click="vm.itemByLowestPrice();">Go!</button>
                     </span>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
+                </div>
+            </div>
         </div>
-                       
+        <p></p>
+        <div>
+            <label>Item Name: {{vm.itemByLowest.ItemName}}</label>
+            <p></p>
+            <label>Lowest Price: ${{vm.itemByLowest.Price}}</label>
+            
+        </div>
+                   
     </div>
    
 
