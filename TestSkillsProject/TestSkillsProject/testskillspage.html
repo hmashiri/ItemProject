@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="style.css?v={random number/string}" />
 </head>
 <body>
+	<!-- here we insert the angular controller so it can control the HTML page -->
     <div class="container" ng-controller="ItemController as vm">
         <h1 class="text-center">ITEMS</h1>
         
+	    <!-- here we add group of buttons and allow the user to display all items or just the items with the highest price
+			- we added NG SHOW and NG HIDE so when the user clicks one tab, the other tab will be hidden-->
         <div class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-info" ng-click="vm.showAll();">List All Items</button>
             <button type="button" class="btn btn-info" ng-click="vm.showHighest();">Highest Price Items</button>
